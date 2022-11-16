@@ -10,8 +10,8 @@ routes.get('/', (_req, res) => {
 })
 
 routes.get('/accounts', AccountsController.getAll)
-routes.post('/accounts', AccountsController.create)
 
+routes.get('/users', UsersController.getAll)
 routes.post('/users', validateLogin, UsersController.login)
 routes.post('/users/register', validateLogin, UsersController.create)
 

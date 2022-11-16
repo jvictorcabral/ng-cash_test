@@ -23,11 +23,12 @@ const login = async (req: Request, res: Response) => {
 
   if (!findByPassword) {
     return res.status(401).json({ message: 'Incorrect username or password' });
+    
   }
 
   const token = sign({ username }, SECRET, { expiresIn: '1d' });
 
-  return res.status(200).json({ token });
+  return res.status(200).json({ token, username, accountId: user.accountId });
 
 }
 
@@ -42,11 +43,13 @@ const create = async (req: Request, res: Response) => {
   const createAccount = await Accounts.create({ balance: 100.00 })
   const hashedPassword = await bcrypt.hash(password, 10)
   
-  const createUser = await Users.create(
+  await Users.create(
     { username, password: hashedPassword, accountId: createAccount.id }
   );
 
-    return res.status(201).json(createUser);
+  const token = sign({ username }, SECRET, { expiresIn: '1d' });
+
+    return res.status(201).json({ token, username, accountId: createAccount.id });
   
 }
 
