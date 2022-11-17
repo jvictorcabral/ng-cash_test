@@ -6,7 +6,7 @@ import Users from '../database/models/Users';
 
 const SECRET: string = process.env.JWT_SECRET || 'jwt_secret';
 
-const getAll = async (req: Request, res: Response) => {
+const getAll = async (_req: Request, res: Response) => {
   const get = await Users.findAll();
 
   return res.json(get)
