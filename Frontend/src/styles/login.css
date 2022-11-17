@@ -1,4 +1,5 @@
-.login, .register {
+.login,
+.register {
   background-color: black;
   align-items: center;
   flex-direction: column;
@@ -73,7 +74,6 @@
 
 .create-account_btn:hover {
   text-shadow: 0 0 5px rgb(17, 241, 1);
-
 }
 
 .error-message {
@@ -86,20 +86,19 @@
   opacity: 0;
 }
 
-@media screen and (min-width: 425px){
+@media screen and (min-width: 425px) {
   .initial-title {
-  width: 70%;
-
+    width: 70%;
   }
 
   .login_input-div {
-  width: 70%;
+    width: 70%;
   }
-  
 }
 
 @media screen and (min-width: 700px) {
-  .login, .register {
+  .login,
+  .register {
     flex-direction: row;
     justify-content: space-evenly;
   }
