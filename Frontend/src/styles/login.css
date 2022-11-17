@@ -1,0 +1,130 @@
+.login, .register {
+  background-color: black;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  gap: 1.3em;
+}
+
+.initial-title {
+  color: white;
+  width: 80%;
+  text-align: center;
+}
+
+.login_input-div {
+  align-items: stretch;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 50%;
+  border-radius: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.login_label {
+  text-align: start;
+  margin: 0 11%;
+}
+
+.login_input {
+  margin: 0 10% 30px;
+  padding: 8px;
+  border-radius: 20px;
+  border: solid 2px black;
+}
+
+.btn {
+  padding: 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  background-color: black;
+  color: white;
+  font-size: large;
+  border: none;
+  margin: 0 10% 20px;
+}
+
+.btn:hover {
+  box-shadow: 0px 3px 1px 2px rgb(136 0 255);
+  text-shadow: 0 0 8px white;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 50%;
+  cursor: not-allowed;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.create-account_btn {
+  background-color: transparent;
+  border: none;
+  font-weight: 900;
+  cursor: pointer;
+  font-size: large;
+  margin: 0 10% 10px;
+  text-decoration: underline;
+}
+
+.create-account_btn:hover {
+  text-shadow: 0 0 5px rgb(17, 241, 1);
+
+}
+
+.error-message {
+  color: red;
+  font-size: smaller;
+  text-shadow: 0 0 4px rgba(255, 0, 0, 0.663);
+}
+
+.invisible {
+  opacity: 0;
+}
+
+@media screen and (min-width: 425px){
+  .initial-title {
+  width: 70%;
+
+  }
+
+  .login_input-div {
+  width: 70%;
+  }
+  
+}
+
+@media screen and (min-width: 700px) {
+  .login, .register {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .initial-title {
+    max-width: 40%;
+  }
+
+  .login_input-div {
+    max-width: 40%;
+  }
+}
+
+@media screen and (min-width: 870px) {
+  .initial-title {
+    font-size: 3em;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .initial-title {
+    max-width: 30%;
+  }
+
+  .login_input-div {
+    max-width: 30%;
+  }
+}

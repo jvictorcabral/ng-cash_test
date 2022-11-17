@@ -54,28 +54,34 @@ function LoginInput() {
   });
 
   return (
-    <div>
-      <label htmlFor="username"></label>
+    <div className="login_input-div">
+      <label className="login_label" htmlFor="username">Seu username:</label>
       <input
         type="text"
         id="username"
-        placeholder="Seu username aqui"
+        className="login_input"
+        placeholder="klovis"
         onChange={({ target }) => setUsername(target.value)}
       />
 
-      <label htmlFor="password"></label>
+      <label className="login_label" htmlFor="password">Sua senha</label>
       <input
         type="password"
         id="password"
-        placeholder="sua senha aqui"
+        className="login_input"
+        placeholder="********"
         onChange={({ target }) => setUserPassword(target.value)}
       />
 
-      <button disabled={isNotLoginValid()} onClick={buttonLogin}>
+      <button
+        className="btn"
+        disabled={isNotLoginValid()}
+        onClick={buttonLogin}>
         acessar minha conta
       </button>
 
       <button
+      className="create-account_btn"
       onClick={ buttonRegister }
       >
         criar conta
