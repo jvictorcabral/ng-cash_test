@@ -5,13 +5,14 @@
   flex-direction: column;
   display: flex;
   justify-content: center;
-  gap: 1.3em;
 }
 
 .initial-title {
   color: white;
   width: 80%;
   text-align: center;
+  height: 10%;
+  margin-bottom: 20px;
 }
 
 .login_input-div {
@@ -100,11 +101,13 @@
   .login,
   .register {
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
   }
 
   .initial-title {
     max-width: 40%;
+    left: 0;
+    margin-bottom: 0;
   }
 
   .login_input-div {
@@ -119,6 +122,12 @@
 }
 
 @media screen and (min-width: 1000px) {
+  .login,
+  .register {
+    gap: 4em;
+  }
+
+
   .initial-title {
     max-width: 30%;
   }

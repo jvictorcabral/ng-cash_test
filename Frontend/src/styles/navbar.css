@@ -3,12 +3,12 @@ header {
   width: 100vw;
   color: white;
   display: flex;
-  height: 100px;
+  height: 120px;
   justify-content: center;
 }
 
 header svg {
-  width: 100px;
+  width: 65px;
 }
 
 .infos-navbar {
@@ -20,27 +20,24 @@ header svg {
 }
 
 .navbar_span {
-  font-size: large;
-  font-weight: 900;
   background-color: rgb(46, 46, 46);
   border-radius: 20px;
-  padding: 10px 14px;
-}
-
-.ocult_div:hover {
-  cursor: pointer;
-  text-shadow: 0 0 8px white;
+  padding: 8px 12px;
+  font-size: small;
 }
 
 .balance-user {
   display: flex;
   align-items: center;
-  gap: 1.5em;
+  flex-direction: column-reverse;
+  gap: 1.2em;
+  height: 110px;
+  justify-content: center;
 }
 
 .logout_btn {
   border: 2px solid white;
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-radius: 25px;
   font-weight: 600;
   background-color: black;
@@ -52,4 +49,41 @@ header svg {
   box-shadow: 0px 3px 1px 2px rgb(255, 0, 212);
   text-shadow: 0 0 8px white;
   cursor: pointer;
+}
+
+.ocult_div:hover {
+  cursor: pointer;
+  text-shadow: 0 0 8px white;
+}
+
+@media screen and (min-width: 425px) {
+  .navbar_span {
+    font-size: medium;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  header {
+    height: 100px;
+  }
+
+  header svg {
+    width: 100px;
+  }
+
+  .logout_btn {
+    padding: 10px 14px;
+  }
+
+  .balance-user {
+    flex-direction: row;
+  }
+
+  .navbar_span {
+    font-size: large;
+    font-weight: 900;
+    background-color: rgb(46, 46, 46);
+    border-radius: 20px;
+    padding: 10px 14px;
+  }
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import LogoutBtn from './LogoutBtn';
 import ShowBalance from './ShowBalance';
-import ngLogo from '../assets/logo-ngcash.svg';
 import '../styles/navbar.css';
 
 function NavBar() {
