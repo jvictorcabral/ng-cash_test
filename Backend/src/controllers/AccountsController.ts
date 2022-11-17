@@ -1,12 +1,13 @@
 import { Request, Response } from 'express';
 import Accounts from "../database/models/Accounts";
 
-const getAll = async (_req: Request, res: Response) => {
-  const get = await Accounts.findAll();
+const getBalanceById = async (req: Request, res: Response) => {
+  const { accountId } = req.body;
+  const get = await Accounts.findOne({ where: { id: accountId } });
 
   return res.json(get)
 }
 
 export default {
-  getAll,
+  getBalanceById,
 }
