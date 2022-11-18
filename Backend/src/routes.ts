@@ -19,6 +19,9 @@ routes.post('/users', validateLogin, UsersController.login)
 routes.post('/users/register', validateLogin, UsersController.create)
 
 routes.post('/transaction', validateToken, TransactionsController.createTransation)
+routes.get('/transaction/history', validateToken, TransactionsController.getHistory)
+routes.get('/transaction/:id', validateToken, TransactionsController.getById)
 routes.get('/transaction', TransactionsController.getAll)
+
 
 export default routes;

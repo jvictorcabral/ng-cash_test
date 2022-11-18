@@ -23,10 +23,9 @@ const login = async (req: Request, res: Response) => {
 
   if (!findByPassword) {
     return res.status(401).json({ message: 'Incorrect username or password' });
-    
   }
 
-  const token = sign({ username }, SECRET, { expiresIn: '1d' });
+  const token = sign({ username, id: user.id }, SECRET, { expiresIn: '1d' });
 
   return res.status(200).json({ token, username, accountId: user.accountId });
 
@@ -37,20 +36,20 @@ const create = async (req: Request, res: Response) => {
   const verifyUserExist = await Users.findOne({ where: { username } });
   if (verifyUserExist) {
     return res.status(404).json({ message: "User already registered" });
-    
+
   }
 
   const createAccount = await Accounts.create({ balance: 100.00 })
   const hashedPassword = await bcrypt.hash(password, 10)
-  
-  await Users.create(
+
+  const user = await Users.create(
     { username, password: hashedPassword, accountId: createAccount.id }
   );
 
-  const token = sign({ username }, SECRET, { expiresIn: '1d' });
+  const token = sign({ username, id: user.id }, SECRET, { expiresIn: '1d' });
 
-    return res.status(201).json({ token, username, accountId: createAccount.id });
-  
+  return res.status(201).json({ token, username, accountId: createAccount.id });
+
 }
 
 export default {
