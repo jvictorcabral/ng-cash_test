@@ -11,7 +11,9 @@ h1 {
 
 .login,
 .register,
-.home {
+.home,
+.transaction,
+.transaction-success {
   width: 100vw;
   height: 100vh;
 }
