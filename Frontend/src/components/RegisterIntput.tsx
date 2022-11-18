@@ -32,8 +32,6 @@ function RegisterInput() {
         navigate('/home');
       } else {
         setIsVisibleMessage(true);
-        console.log(data);
-        console.log(status);
       }
     } catch (err) {
       console.log('error ', err);

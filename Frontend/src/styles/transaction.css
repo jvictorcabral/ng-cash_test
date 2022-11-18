@@ -1,0 +1,76 @@
+.transaction_input[ type = 'number' ]::-webkit-inner-spin-button { appearance: none; }
+
+.transaction_input[ type = 'number' ] {
+  appearance: textfield;
+}
+
+.transaction_section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.transaction_input-div {
+  align-items: stretch;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 50%;
+  border-radius: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.transaction_label {
+  text-align: start;
+  margin: 0 11%;
+}
+
+.transaction_input {
+  margin: 0 10% 30px;
+  padding: 8px;
+  border-radius: 20px;
+  border: solid 2px black;
+}
+
+.transaction_btn {
+  padding: 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  background-color: black;
+  color: white;
+  font-size: large;
+  border: none;
+  margin: 0 10% 20px;
+}
+
+.transaction_btn:hover {
+  box-shadow: 0px 4px 1px 2px rgb(17, 241, 1);
+  text-shadow: 0 0 8px white;
+  cursor: pointer;
+}
+
+.img_transaction {
+  width: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .transaction_section {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .img_transaction {
+    width: 38vw;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .transaction_input-div {
+    width: 40vw;
+  }
+
+}

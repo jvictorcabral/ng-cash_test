@@ -5,6 +5,7 @@ header {
   display: flex;
   height: 120px;
   justify-content: center;
+  position: absolute;
 }
 
 header svg {

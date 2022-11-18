@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 function LoginTransaction() {
   const [username, setUsername] = useState('');
-  const [value, setValue] = useState('');
+  const [valueTransaction, setValueTransaction] = useState(0);
   const [isVisibleMessage, setIsVisibleMessage] = useState(false);
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ function LoginTransaction() {
         body: JSON.stringify({
           debitedAccount: username,
           creditedAccount: useData.username,
-          value,
+          value: Number(valueTransaction),
         })
       };
       const response = await fetch('http://localhost:3000/transaction', requestOptions);
@@ -35,34 +35,34 @@ function LoginTransaction() {
   };
 
   return (
-    <div>
-      <label className="" htmlFor="username">
+    <div className='transaction_input-div'>
+      <label className="transaction_label" htmlFor="username">
         Username de quem irá receber
       </label>
       <input
         type="text"
         id="username"
-        className=""
+        className="transaction_input"
         placeholder="klovis"
         onChange={({ target }) => setUsername(target.value)}
       />
 
-      <label className="" htmlFor="value">
+      <label className="transaction_label" htmlFor="value">
         Valor a pagar
       </label>
       <input
         type="number"
         id="value"
-        className=""
+        className="transaction_input"
         placeholder="50,00"
-        onChange={({ target }) => setValue(target.value)}
+        onChange={({ target }) => setValueTransaction(target.value as unknown as number)}
       />
 
-      <button className="" onClick={finishTransaction}>
+      <button className="transaction_btn" onClick={finishTransaction}>
         realizar transferência
       </button>
       <p className={isVisibleMessage ? 'error-message' : 'error-message invisible'}>
-        Usuário ou Senha inválida
+        Erro: Verifique os campos e tente novamente
       </p>
     </div>
   );
