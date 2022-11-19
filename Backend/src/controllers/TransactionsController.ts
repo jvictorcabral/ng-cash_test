@@ -7,7 +7,7 @@ import editBalance from '../services/TransactionsSerice';
 
 const SECRET: string = process.env.JWT_SECRET || 'jwt_secret';
 
-const getAll = async (req: Request, res: Response) => {
+const getAll = async (_req: Request, res: Response) => {
   const get = await Transactions.findAll();
 
   return res.json(get)
@@ -16,8 +16,31 @@ const getAll = async (req: Request, res: Response) => {
 const getById = async (req: Request, res: Response) => {
   const { id } = req.params;
   const get = await Transactions.findByPk(id);
+  const auth = req.headers.authorization;
 
-  return res.status(200).json(get)
+  if (get && auth) {
+    const decoded = verify(auth, SECRET) as JwtPayload;
+    const debitedUser = await Users.findOne({ where: { accountId: get.debitedAccountId } });
+    const creditedUser = await Users.findOne({ where: { accountId: get.creditedAccountId } });
+
+    if (get.creditedAccountId === decoded.id) {
+      console.log('creditedAccountId ', get.creditedAccountId);
+      console.log('decoded ', decoded.id);
+
+      const result = {
+        debitedUser: debitedUser?.username,
+        creditedUser: creditedUser?.username,
+        value: get.value,
+        createdAt: get.createdAt
+      }
+
+      return res.status(200).json(result);
+    }
+    return res.status(401).end();
+
+  }
+  return res.status(404).end()
+
 }
 
 const createTransation = async (req: Request, res: Response) => {
@@ -25,12 +48,11 @@ const createTransation = async (req: Request, res: Response) => {
 
   try {
     const getDebitedId = await Users.findOne({ where: { username: debitedAccount } })
-  
+
     const getCreditedId = await Users.findOne({ where: { username: creditedAccount } })
-  
+
     if (getDebitedId && getCreditedId) {
       if (getDebitedId.accountId !== getCreditedId.accountId) {
-        // editBalance(getDebitedId.accountId, getCreditedId.accountId, value)
         const { status, message } = await editBalance(getDebitedId.accountId, getCreditedId.accountId, value);
         if (status === 404) {
           return res.status(status).json(message)
@@ -45,7 +67,7 @@ const createTransation = async (req: Request, res: Response) => {
         return res.status(201).json(create)
       }
     }
-  
+
     return res.status(404).json()
   } catch (error) {
     return res.status(404).json({ message: "Insuficient Balance" })
@@ -72,13 +94,89 @@ const getHistory = async (req: Request, res: Response) => {
 
     return res.status(200).json(historyTransaction);
   }
+}
 
+const getHistoryFilter = async (req: Request, res: Response) => {
+  const { filter } = req.body;
+  const auth = req.headers.authorization;
 
+  if (filter === 'check-in') {
+    if (auth) {
+      const decoded = verify(auth, SECRET) as JwtPayload;
+
+      const historyTransaction = await Transactions.findAll(
+        {
+          where:
+            { debitedAccountId: decoded.id }
+        }
+      )
+      return res.status(200).json(historyTransaction);
+    }
+  } else if (filter === 'check-out') {
+    if (auth) {
+      const decoded = verify(auth, SECRET) as JwtPayload;
+
+      const historyTransaction = await Transactions.findAll(
+        {
+          where:
+            { creditedAccountId: decoded.id }
+        }
+      )
+      return res.status(200).json(historyTransaction);
+    }
+  }
+}
+
+const getHistoryFilterDate = async (req: Request, res: Response) => {
+  const { filter } = req.body;
+  const auth = req.headers.authorization;
+
+  if (filter === 'asc') {
+    if (auth) {
+      const decoded = verify(auth, SECRET) as JwtPayload;
+
+      const historyTransaction = await Transactions.findAll(
+        {
+          where: {
+            [Op.or]: [
+              { debitedAccountId: decoded.id },
+              { creditedAccountId: decoded.id }
+            ]
+          },
+          order: [
+            'createdAt'
+          ]
+        }
+      )
+      return res.status(200).json(historyTransaction);
+    }
+  } else if (filter === 'desc') {
+    if (auth) {
+      const decoded = verify(auth, SECRET) as JwtPayload;
+
+      const historyTransaction = await Transactions.findAll(
+        {
+          where: {
+            [Op.or]: [
+              { debitedAccountId: decoded.id },
+              { creditedAccountId: decoded.id }
+            ]
+          },
+          order: [
+            ['createdAt', 'DESC']
+          ]
+        }
+      )
+      return res.status(200).json(historyTransaction);
+    }
+  }
 }
 
 export default {
   createTransation,
   getAll,
   getById,
-  getHistory
+  getHistory,
+  getHistoryFilter,
+  getHistoryFilterDate
 }

@@ -20,6 +20,8 @@ routes.post('/users/register', validateLogin, UsersController.create)
 
 routes.post('/transaction', validateToken, TransactionsController.createTransation)
 routes.get('/transaction/history', validateToken, TransactionsController.getHistory)
+routes.post('/transaction/history', validateToken, TransactionsController.getHistoryFilter)
+routes.post('/transaction/history/date', validateToken, TransactionsController.getHistoryFilterDate)
 routes.get('/transaction/:id', validateToken, TransactionsController.getById)
 routes.get('/transaction', TransactionsController.getAll)
 

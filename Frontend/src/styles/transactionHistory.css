@@ -1,0 +1,108 @@
+table {
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  text-align: center;
+  width: 90vw;
+  font-size: small;
+}
+
+.history_btns {
+  margin: 3vh 0;
+  display: flex;
+  width: 70vw;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.history_btn {
+  padding: 8px;
+  border-radius: 20px;
+  font-weight: 600;
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.history_btn:hover {
+  text-shadow: 0 0 8px white;
+  cursor: pointer;
+}
+
+.history_btn:hover:nth-child( 1 ) {
+  box-shadow: 0px 4px 1px 2px rgb(136 0 255);
+}
+
+.history_btn:hover:nth-child( 2 ) {
+  box-shadow: 0px 4px 1px 2px rgb(17, 241, 1);
+}
+
+.history_btn:hover:nth-child( 3 ) {
+  box-shadow: 0px 4px 1px 2px rgb(255, 0, 212);
+}
+
+.table_div {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tr-table {
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 1px rgb(101 101 101 / 63%);
+}
+
+.tr-table td {
+  padding: 0.3em;
+  font-weight: 700;
+}
+
+.table_transactions {
+  margin: auto;
+}
+
+.tr-table td:nth-child( 1 ) {
+  background-color: white;
+  border-radius: 5px 0 0 5px;
+}
+
+.tr-table td:nth-child( 2 ) {
+  background-color: rgb(241, 238, 238);
+}
+
+.tr-table td:nth-child( 3 ) {
+  background-color: rgb(136, 0, 255);
+  color: white;
+}
+
+.tr-table td:nth-child( 4 ) {
+  background-color: rgb(255, 0, 212);
+  border-radius: 0 5px 5px 0;
+}
+
+@media screen and (min-width: 768px) {
+  table {
+    width: 70vw;
+    font-size: medium;
+  }
+
+  .history_btns {
+    margin: 6vh 0;
+    display: flex;
+    width: 70vw;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .history_btn {
+    padding: 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    background-color: black;
+    color: white;
+    font-size: large;
+    border: none;
+    width: 18vw
+  }
+}
