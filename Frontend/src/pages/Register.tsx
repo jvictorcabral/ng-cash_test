@@ -6,15 +6,15 @@ import '../styles/login.css';
 function Register() {
   useEffect(() => {
     const typed = new Typed('.element', {
-      strings:["Cadastre-se no NG Cash", "A carteira da nova geração"],
+      strings: ['Cadastre-se no NG Cash', 'A carteira da nova geração'],
       stringsElement: '#typed-strings',
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 1000,
       startDelay: 1000,
-      loop: true,
-    })
-  }, [])
+      loop: true
+    });
+  }, []);
 
   return (
     <div className="register">

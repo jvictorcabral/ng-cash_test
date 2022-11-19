@@ -219,18 +219,16 @@ function TransactionHistory() {
   return (
     <div className="transaction-history">
       <div className="table_div">
-        <div className='history_btns'>
-          <button className='history_btn' onClick={filteringDate}>
+        <div className="history_btns">
+          <button className="history_btn" onClick={filteringDate}>
             {clickedDate === 'asc' ? 'mais recentes' : 'mais antigas'}
           </button>
 
-          <button className='history_btn' onClick={filtering}>
-            {clicked === 'check-in'
-              ? 'transações recebidas'
-              : 'transações enviadas'}
+          <button className="history_btn" onClick={filtering}>
+            {clicked === 'check-in' ? 'transações recebidas' : 'transações enviadas'}
           </button>
 
-          <button className='history_btn' onClick={goBackHome}>
+          <button className="history_btn" onClick={goBackHome}>
             página inicial
           </button>
         </div>

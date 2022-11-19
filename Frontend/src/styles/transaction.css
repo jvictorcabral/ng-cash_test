@@ -1,6 +1,8 @@
-.transaction_input[ type = 'number' ]::-webkit-inner-spin-button { appearance: none; }
+.transaction_input[type='number']::-webkit-inner-spin-button {
+  appearance: none;
+}
 
-.transaction_input[ type = 'number' ] {
+.transaction_input[type='number'] {
   appearance: textfield;
 }
 
@@ -72,5 +74,4 @@
   .transaction_input-div {
     width: 40vw;
   }
-
 }

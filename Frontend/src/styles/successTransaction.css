@@ -42,15 +42,15 @@
   cursor: pointer;
 }
 
-.extract_btn:hover:nth-child( 1 ) {
+.extract_btn:hover:nth-child(1) {
   box-shadow: 0px 4px 1px 2px rgb(136 0 255);
 }
 
-.extract_btn:hover:nth-child( 2 ) {
+.extract_btn:hover:nth-child(2) {
   box-shadow: 0px 4px 1px 2px rgb(17, 241, 1);
 }
 
-.extract_btn:hover:nth-child( 3 ) {
+.extract_btn:hover:nth-child(3) {
   box-shadow: 0px 4px 1px 2px rgb(255, 0, 212);
 }
 

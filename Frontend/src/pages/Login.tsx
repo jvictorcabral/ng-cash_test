@@ -6,15 +6,15 @@ import '../styles/login.css';
 function Login() {
   useEffect(() => {
     const typed = new Typed('.element', {
-      strings:["Bem vindo(a) ao NG Cash", "A carteira da nova geração"],
+      strings: ['Bem vindo(a) ao NG Cash', 'A carteira da nova geração'],
       stringsElement: '#typed-strings',
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 1000,
       startDelay: 1000,
-      loop: true,
-    })
-  }, [])
+      loop: true
+    });
+  }, []);
 
   return (
     <div className="login">

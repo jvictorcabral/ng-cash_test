@@ -28,15 +28,15 @@
   cursor: pointer;
 }
 
-.home_btn:hover:nth-child( 1 ) {
+.home_btn:hover:nth-child(1) {
   box-shadow: 0px 4px 1px 2px rgb(136 0 255);
 }
 
-.home_btn:hover:nth-child( 2 ) {
+.home_btn:hover:nth-child(2) {
   box-shadow: 0px 4px 1px 2px rgb(17, 241, 1);
 }
 
-.home_btn:hover:nth-child( 3 ) {
+.home_btn:hover:nth-child(3) {
   box-shadow: 0px 4px 1px 2px rgb(255, 0, 212);
 }
 

@@ -56,8 +56,8 @@ function TransactionSuccess() {
     <div className="transaction-success">
       <NavBar />
       <div className="extract_success">
-        <h1 className='extract_title'>Transação Realizada com Sucesso</h1>
-        <div className='extract_spans'>
+        <h1 className="extract_title">Transação Realizada com Sucesso</h1>
+        <div className="extract_spans">
           <span>{`Quem pagou: ${transactionData.creditedUser}`}</span>
           <span>{`Quem recebeu: ${transactionData.debitedUser}`}</span>
           <span>{`Valor da transferência: R$${transactionData.value.replace('.', ',')}`}</span>
@@ -67,10 +67,16 @@ function TransactionSuccess() {
             .reverse()
             .join('/')}`}</span>
         </div>
-        <div className='success_btns'>
-          <button className='extract_btn' onClick={goBackHome}>voltar para a página inicial</button>
-          <button className='extract_btn' onClick={goBackTransaction}>fazer outra transferência</button>
-          <button className='extract_btn' onClick={goHistoryTransaction}>ver histórico de Transações</button>
+        <div className="success_btns">
+          <button className="extract_btn" onClick={goBackHome}>
+            voltar para a página inicial
+          </button>
+          <button className="extract_btn" onClick={goBackTransaction}>
+            fazer outra transferência
+          </button>
+          <button className="extract_btn" onClick={goHistoryTransaction}>
+            ver histórico de Transações
+          </button>
         </div>
       </div>
     </div>

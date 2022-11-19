@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import digitalNG from '../images/digitalBank.png'
+import digitalNG from '../images/digitalBank.png';
 import '../styles/home.css';
 
 function Home() {
@@ -28,13 +28,10 @@ function Home() {
             ver histórico de Transações
           </button>
 
-          <button className="home_btn">
-            investir em bitcoin
-          </button>
+          <button className="home_btn">investir em bitcoin</button>
         </section>
 
-        <img className='img_home' src={digitalNG} alt='' />
-        
+        <img className="img_home" src={digitalNG} alt="" />
       </div>
     </div>
   );

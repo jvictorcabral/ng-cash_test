@@ -22,20 +22,20 @@ function LoginTransaction() {
         body: JSON.stringify({
           debitedAccount: username,
           creditedAccount: useData.username,
-          value: Number(valueTransaction),
+          value: Number(valueTransaction)
         })
       };
       const response = await fetch('http://localhost:3000/transaction', requestOptions);
       if (response.status === 201) {
         const data = await response.json();
-        navigate(`/transaction/success/${data.id}`)
+        navigate(`/transaction/success/${data.id}`);
       }
-      setIsVisibleMessage(true)
+      setIsVisibleMessage(true);
     }
   };
 
   return (
-    <div className='transaction_input-div'>
+    <div className="transaction_input-div">
       <label className="transaction_label" htmlFor="username">
         Username de quem irá receber
       </label>
