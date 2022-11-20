@@ -33,7 +33,7 @@
 }
 
 .go-home_btn:hover {
-  box-shadow: 0px 4px 1px 2px rgb(136 0 255);
+  box-shadow: 0px 4px 1px 2px rgb(17, 241, 1);
   text-shadow: 0 0 6px white;
   cursor: pointer;
 }
