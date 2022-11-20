@@ -29,7 +29,8 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('users');
   }
 };
