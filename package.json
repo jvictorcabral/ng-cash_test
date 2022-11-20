@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "install": "cd Frontend && npm i && cd ../Backend && npm i && cd ..",
+    "prestart": "cd Backend && npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && cd ..",
+    "dev:front": "cd Frontend && npm run dev",
+    "dev:back": "cd Backend && npm run dev"
+  }
+}
