@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import Criptocurrency from './pages/Criptocurrency';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -17,6 +18,7 @@ function App() {
       <Route path="/transaction" element={<Transaction />} />
       <Route path="/transaction/history" element={<TransactionHistory />} />
       <Route path="/transaction/success/:id" element={<TransactionSuccess />} />
+      <Route path="/criptocurrency" element={<Criptocurrency />} />
     </Routes>
   );
 }

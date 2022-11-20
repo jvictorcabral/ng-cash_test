@@ -15,6 +15,11 @@ function Home() {
     navigate('/transaction/history');
   };
 
+  const goCriptocurrency = () => {
+    navigate('/criptocurrency');
+
+  };
+
   return (
     <div className="home">
       <NavBar />
@@ -28,7 +33,7 @@ function Home() {
             ver histórico de Transações
           </button>
 
-          <button className="home_btn">investir em bitcoin</button>
+          <button className="home_btn" onClick={goCriptocurrency}>investir em bitcoin</button>
         </section>
 
         <img className="img_home" src={digitalNG} alt="" />

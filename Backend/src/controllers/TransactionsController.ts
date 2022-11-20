@@ -10,8 +10,8 @@ const SECRET: string = process.env.JWT_SECRET || 'jwt_secret';
 const getAll = async (_req: Request, res: Response) => {
   const get = await Transactions.findAll();
 
-  return res.json(get)
-}
+  return res.json(get);
+};
 
 const getById = async (req: Request, res: Response) => {
   const { id } = req.params;
@@ -32,30 +32,30 @@ const getById = async (req: Request, res: Response) => {
         creditedUser: creditedUser?.username,
         value: get.value,
         createdAt: get.createdAt
-      }
+      };
 
       return res.status(200).json(result);
     }
     return res.status(401).end();
 
   }
-  return res.status(404).end()
+  return res.status(404).end();
 
-}
+};
 
 const createTransation = async (req: Request, res: Response) => {
   const { debitedAccount, creditedAccount, value } = req.body;
 
   try {
-    const getDebitedId = await Users.findOne({ where: { username: debitedAccount } })
+    const getDebitedId = await Users.findOne({ where: { username: debitedAccount } });
 
-    const getCreditedId = await Users.findOne({ where: { username: creditedAccount } })
+    const getCreditedId = await Users.findOne({ where: { username: creditedAccount } });
 
     if (getDebitedId && getCreditedId) {
       if (getDebitedId.accountId !== getCreditedId.accountId) {
         const { status, message } = await editBalance(getDebitedId.accountId, getCreditedId.accountId, value);
         if (status === 404) {
-          return res.status(status).json(message)
+          return res.status(status).json(message);
         }
         const create = await Transactions.create(
           {
@@ -63,17 +63,17 @@ const createTransation = async (req: Request, res: Response) => {
             creditedAccountId: getCreditedId.accountId,
             value,
           }
-        )
-        return res.status(201).json(create)
+        );
+        return res.status(201).json(create);
       }
     }
 
-    return res.status(404).json()
+    return res.status(404).json();
   } catch (error) {
-    return res.status(404).json({ message: "Insuficient Balance" })
+    return res.status(404).json({ message: 'Insuficient Balance' });
   }
 
-}
+};
 
 const getHistory = async (req: Request, res: Response) => {
   const auth = req.headers.authorization;
@@ -90,11 +90,11 @@ const getHistory = async (req: Request, res: Response) => {
           ]
         }
       }
-    )
+    );
 
     return res.status(200).json(historyTransaction);
   }
-}
+};
 
 const getHistoryFilter = async (req: Request, res: Response) => {
   const { filter } = req.body;
@@ -109,7 +109,7 @@ const getHistoryFilter = async (req: Request, res: Response) => {
           where:
             { debitedAccountId: decoded.id }
         }
-      )
+      );
       return res.status(200).json(historyTransaction);
     }
   } else if (filter === 'check-out') {
@@ -121,11 +121,11 @@ const getHistoryFilter = async (req: Request, res: Response) => {
           where:
             { creditedAccountId: decoded.id }
         }
-      )
+      );
       return res.status(200).json(historyTransaction);
     }
   }
-}
+};
 
 const getHistoryFilterDate = async (req: Request, res: Response) => {
   const { filter } = req.body;
@@ -147,7 +147,7 @@ const getHistoryFilterDate = async (req: Request, res: Response) => {
             'createdAt'
           ]
         }
-      )
+      );
       return res.status(200).json(historyTransaction);
     }
   } else if (filter === 'desc') {
@@ -166,11 +166,11 @@ const getHistoryFilterDate = async (req: Request, res: Response) => {
             ['createdAt', 'DESC']
           ]
         }
-      )
+      );
       return res.status(200).json(historyTransaction);
     }
   }
-}
+};
 
 export default {
   createTransation,
@@ -179,4 +179,4 @@ export default {
   getHistory,
   getHistoryFilter,
   getHistoryFilterDate
-}
+};

@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import LoginInput from '../components/LoginInput';
 import Typed from 'typed.js';
 import '../styles/login.css';
 
 function Login() {
   useEffect(() => {
-    const typed = new Typed('.element', {
+    new Typed('.element', {
       strings: ['Bem vindo(a) ao NG Cash', 'A carteira da nova geração'],
       stringsElement: '#typed-strings',
       typeSpeed: 100,

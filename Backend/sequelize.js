@@ -4,4 +4,4 @@ module.exports = {
   password: 'docker',
   database: 'ng-cash',
   dialect: 'postgres',
-}
+};

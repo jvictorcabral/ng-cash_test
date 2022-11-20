@@ -40,7 +40,7 @@ function ShowBalance() {
       {!ocult ? (
         <span className="navbar_span">{`R$ ${balance}`}</span>
       ) : (
-        <span className="navbar_span ocult">{`R$ ****** `}</span>
+        <span className="navbar_span ocult">{'R$ ****** '}</span>
       )}
     </div>
   );

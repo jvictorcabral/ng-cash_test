@@ -22,8 +22,8 @@ function TransactionHistory() {
 
       if (userData) {
         const useData = JSON.parse(userData);
-        const url1 = `http://localhost:3000/transaction/history`;
-        const url2 = `http://localhost:3000/users`;
+        const url1 = 'http://localhost:3000/transaction/history';
+        const url2 = 'http://localhost:3000/users';
         const requestOptions = {
           method: 'GET',
           headers: {
@@ -39,17 +39,17 @@ function TransactionHistory() {
           const users = await getUsers.json();
           const mapHistory = history.map(
             (element: {
-              id: any;
-              debitedAccountId: any;
-              creditedAccountId: any;
-              value: any;
-              createdAt: any;
+              id: number;
+              debitedAccountId: number;
+              creditedAccountId: number;
+              value: number;
+              createdAt: Date;
             }) => {
               const debited = users.find(
-                (e: { accountId: any }) => e.accountId === element.debitedAccountId
+                (e: { accountId: number }) => e.accountId === element.debitedAccountId
               );
               const credited = users.find(
-                (e: { accountId: any }) => e.accountId === element.creditedAccountId
+                (e: { accountId: number }) => e.accountId === element.creditedAccountId
               );
 
               return {
@@ -77,7 +77,7 @@ function TransactionHistory() {
     if (userData) {
       const useData = JSON.parse(userData);
       const url1 = 'http://localhost:3000/transaction/history/date';
-      const url2 = `http://localhost:3000/users`;
+      const url2 = 'http://localhost:3000/users';
 
       const requestOptions1 = {
         method: 'POST',
@@ -107,17 +107,17 @@ function TransactionHistory() {
       if (getHistory.status === 200) {
         const mapHistory = history.map(
           (element: {
-            id: any;
-            debitedAccountId: any;
-            creditedAccountId: any;
-            value: any;
-            createdAt: any;
+            id: number;
+            debitedAccountId: number;
+            creditedAccountId: number;
+            value: number;
+            createdAt: Date;
           }) => {
             const debited = users.find(
-              (e: { accountId: any }) => e.accountId === element.debitedAccountId
+              (e: { accountId: number }) => e.accountId === element.debitedAccountId
             );
             const credited = users.find(
-              (e: { accountId: any }) => e.accountId === element.creditedAccountId
+              (e: { accountId: number }) => e.accountId === element.creditedAccountId
             );
 
             return {
@@ -148,7 +148,7 @@ function TransactionHistory() {
     if (userData) {
       const useData = JSON.parse(userData);
       const url1 = 'http://localhost:3000/transaction/history';
-      const url2 = `http://localhost:3000/users`;
+      const url2 = 'http://localhost:3000/users';
 
       const requestOptions1 = {
         method: 'POST',
@@ -177,17 +177,17 @@ function TransactionHistory() {
       if (getHistory.status === 200) {
         const mapHistory = history.map(
           (element: {
-            id: any;
-            debitedAccountId: any;
-            creditedAccountId: any;
-            value: any;
-            createdAt: any;
+            id: number;
+            debitedAccountId: number;
+            creditedAccountId: number;
+            value: number;
+            createdAt: Date;
           }) => {
             const debited = users.find(
-              (e: { accountId: any }) => e.accountId === element.debitedAccountId
+              (e: { accountId: number }) => e.accountId === element.debitedAccountId
             );
             const credited = users.find(
-              (e: { accountId: any }) => e.accountId === element.creditedAccountId
+              (e: { accountId: number }) => e.accountId === element.creditedAccountId
             );
 
             return {
@@ -238,7 +238,7 @@ function TransactionHistory() {
             <tr>
               <th>enviado por</th>
               <th>recebido por</th>
-              <th className="">valor</th>
+              <th>valor</th>
               <th>data</th>
             </tr>
           </thead>

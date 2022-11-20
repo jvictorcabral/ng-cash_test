@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize-typescript'
+import { Sequelize } from 'sequelize-typescript';
 
 export const sequelize = new Sequelize({
   host: 'localhost',
@@ -6,4 +6,4 @@ export const sequelize = new Sequelize({
   password: 'docker',
   database: 'ng-cash',
   dialect: 'postgres',
-})
+});

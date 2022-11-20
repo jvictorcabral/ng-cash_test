@@ -14,7 +14,8 @@ h1 {
 .home,
 .transaction,
 .transaction-success,
-.transaction-history {
+.transaction-history,
+.criptocurrency {
   width: 100vw;
   height: 100vh;
 }
