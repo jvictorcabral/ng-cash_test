@@ -17,8 +17,17 @@ function TransactionHistory() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const initial = async () => {
-      const userData = localStorage.getItem('user');
+    const userData = localStorage.getItem('user');
+    const initial = () => {
+
+      if (!userData) {
+        navigate('/');
+      }
+    };
+
+    initial();
+
+    const initialFetch = async () => {
 
       if (userData) {
         const useData = JSON.parse(userData);
@@ -68,7 +77,7 @@ function TransactionHistory() {
         }
       }
     };
-    initial();
+    initialFetch();
   }, []);
 
   const filteringDate = async () => {

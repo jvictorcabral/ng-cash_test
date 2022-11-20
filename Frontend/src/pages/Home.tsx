@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import digitalNG from '../images/digitalBank.png';
@@ -6,6 +6,18 @@ import '../styles/home.css';
 
 function Home() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const initial = () => {
+      const userData = localStorage.getItem('user');
+
+      if (!userData) {
+        navigate('/');
+      }
+    };
+
+    initial();
+  }, []);
 
   const transactionBtn = () => {
     navigate('/transaction');
@@ -17,7 +29,6 @@ function Home() {
 
   const goCriptocurrency = () => {
     navigate('/criptocurrency');
-
   };
 
   return (
@@ -33,7 +44,9 @@ function Home() {
             ver histórico de Transações
           </button>
 
-          <button className="home_btn" onClick={goCriptocurrency}>investir em bitcoin</button>
+          <button className="home_btn" onClick={goCriptocurrency}>
+            investir em bitcoin
+          </button>
         </section>
 
         <img className="img_home" src={digitalNG} alt="" />

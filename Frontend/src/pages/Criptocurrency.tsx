@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import '../styles/criptocurrency.css';
 
 function Criptocurrency() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const initial = () => {
+      const userData = localStorage.getItem('user');
+
+      if (!userData) {
+        navigate('/');
+      }
+    };
+
+    initial();
+  }, []);
 
   const goBackHome = () => {
     navigate('/home');

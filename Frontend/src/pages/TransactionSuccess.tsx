@@ -14,7 +14,17 @@ function TransactionSuccess() {
   const transactionId = useParams();
 
   useEffect(() => {
-    const initial = async () => {
+    const userData = localStorage.getItem('user');
+    const initial = () => {
+
+      if (!userData) {
+        navigate('/');
+      }
+    };
+
+    initial();
+
+    const initialFetch = async () => {
       const userData = localStorage.getItem('user');
 
       if (userData) {
@@ -37,7 +47,7 @@ function TransactionSuccess() {
         navigate('/home');
       }
     };
-    initial();
+    initialFetch();
   }, [transactionData]);
 
   const goBackHome = () => {
