@@ -14,7 +14,7 @@ routes.get('/', (_req, res) => {
 routes.get('/balance', validateToken, AccountsController.getAll);
 routes.post('/balance', validateToken, AccountsController.getBalanceById);
 
-routes.get('/users', UsersController.getAll);
+routes.get('/users', validateToken, UsersController.getAll);
 routes.post('/users', validateLogin, UsersController.login);
 routes.post('/users/register', validateLogin, UsersController.create);
 
@@ -25,7 +25,7 @@ routes.post('/transaction/history', validateToken,
 routes.post('/transaction/history/date', validateToken,
   TransactionsController.getHistoryFilterDate);
 routes.get('/transaction/:id', validateToken, TransactionsController.getById);
-routes.get('/transaction', TransactionsController.getAll);
+routes.get('/transaction', validateToken, TransactionsController.getAll);
 
 
 export default routes;
