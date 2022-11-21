@@ -1,0 +1,39 @@
+# Boas Vindas ao repositório ng-cash_test!
+
+Repositorio criado para o processo seletivo da NG.CASH
+
+Para rodar o projeto, atente-se a cada passo descrito a seguir, e se tiver qualquer dúvida, me envie por email:
+joaovictorcgjvcg@gmail.com
+
+Link do repositorio no Github: https://github.com/jvictorcabral/ng-cash_test
+
+# Sobre o projeto
+
+## 👨‍💻 Desafio
+
+  Estruturar uma aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários da NG consigam realizar transferências internas entre si.
+
+## ‼️ Para começar a rodar o projeto
+
+
+  1. Instale as dependências
+
+  - Para isso, na raiz do projeto, use o seguinte comando: `npm install`
+    - Esse comando irá instalar as dependências do projeto nas pastas /Frontend e /Backend
+
+  2. Inicie o Docker
+
+  - Para isso, na raiz do projeto, use o seguinte comando: `docker-compose up`
+
+  3. Inicie o banco de dados
+
+  - Para isso, na raiz do projeto, use o seguinte comando: `npm run prestart`
+    - Esse comando irá dropar o banco de dados, caso ja exista, criar um  novo banco e realizar as migrations
+
+  4. Rode o Frontend no localhost
+
+  - Para isso, na raiz do projeto, use o seguinte comando: `npm run dev:front`
+
+  5. Rode o Backend no localhost
+
+  - Para isso, na raiz do projeto, use o seguinte comando: `npm run dev:back`
