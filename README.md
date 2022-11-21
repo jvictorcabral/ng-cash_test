@@ -9,19 +9,12 @@ Link do repositorio no Github: https://github.com/jvictorcabral/ng-cash_test
 
 # Sobre o projeto
 
-<details>
-  <summary>
-    <strong>👨‍💻 Desafio</strong>
-  </summary><br>
+## 👨‍💻 Desafio
 
   Estruturar uma aplicação web fullstack, dockerizada, cujo objetivo seja possibilitar que usuários da NG consigam realizar transferências internas entre si.
 
-</details>
+## ‼️ Para começar a rodar o projeto
 
-<details>
-  <summary>
-    <strong>‼️ Para começar a rodar o projeto</strong>
-  </summary><br>
 
   1. Instale as dependências
 
@@ -44,6 +37,3 @@ Link do repositorio no Github: https://github.com/jvictorcabral/ng-cash_test
   5. Rode o Backend no localhost
 
   - Para isso, na raiz do projeto, use o seguinte comando: `npm run dev:back`
-
-</details>
-</details>
