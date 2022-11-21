@@ -2,7 +2,7 @@
 
 Repositorio criado para o processo seletivo da NG.CASH
 
-Para realizar o projeto, atente-se a cada passo descrito a seguir, e se tiver qualquer dúvida, nos envie por email:
+Para rodar o projeto, atente-se a cada passo descrito a seguir, e se tiver qualquer dúvida, me envie por email:
 joaovictorcgjvcg@gmail.com
 
 Link do repositorio no Github: https://github.com/jvictorcabral/ng-cash_test
