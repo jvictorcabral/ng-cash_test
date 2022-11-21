@@ -70,7 +70,9 @@ function TransactionSuccess() {
         <div className="extract_spans">
           <span>{`Quem pagou: ${transactionData.creditedUser}`}</span>
           <span>{`Quem recebeu: ${transactionData.debitedUser}`}</span>
-          <span>{`Valor da transferência: R$${transactionData.value.replace('.', ',')}`}</span>
+          <span>{`Valor da transferência: R$${
+            transactionData.value.replace('.', ',')}`}
+          </span>
           <span>{`Data da transferência: ${transactionData.createdAt
             .substring(0, 10)
             .split('-')

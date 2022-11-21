@@ -1,6 +1,7 @@
 import Accounts from '../database/models/Accounts';
 
-const editBalance = async (getDebitedId: number, getCreditedId: number, value: number) => {
+const editBalance = async (getDebitedId: number,
+  getCreditedId: number, value: number) => {
   const getDebitedAccount = await Accounts.findOne({ where: { id: getDebitedId } });
 
   const getCreditedAccount = await Accounts.findOne({ where: { id: getCreditedId } });

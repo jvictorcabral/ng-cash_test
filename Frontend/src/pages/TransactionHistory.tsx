@@ -252,7 +252,8 @@ function TransactionHistory() {
             </tr>
           </thead>
           <tbody>
-            {transactionData.map(({ id, creditedAccount, debitedAccount, value, createdAt }) => (
+            {transactionData.map((
+              { id, creditedAccount, debitedAccount, value, createdAt }) => (
               <tr key={id} className="tr-table">
                 <td>{creditedAccount}</td>
                 <td>{debitedAccount}</td>

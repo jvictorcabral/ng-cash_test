@@ -13,6 +13,7 @@ function RegisterInput() {
 
   const buttonLogin = async () => {
     try {
+      const url = 'http://localhost:3000/users/register';
       const requestOptions = {
         method: 'POST',
         headers: {
@@ -24,7 +25,7 @@ function RegisterInput() {
           password: userPassword
         })
       };
-      const response = await fetch('http://localhost:3000/users/register', requestOptions);
+      const response = await fetch(url, requestOptions);
       const data = await response.json();
       const { status } = response;
       if (status === 201) {

@@ -20,8 +20,12 @@ const getById = async (req: Request, res: Response) => {
 
   if (get && auth) {
     const decoded = verify(auth, SECRET) as JwtPayload;
-    const debitedUser = await Users.findOne({ where: { accountId: get.debitedAccountId } });
-    const creditedUser = await Users.findOne({ where: { accountId: get.creditedAccountId } });
+    const debitedUser = await Users.findOne({
+      where: { accountId: get.debitedAccountId }
+    });
+    const creditedUser = await Users.findOne({
+      where: { accountId: get.creditedAccountId }
+    });
 
     if (get.creditedAccountId === decoded.id) {
       console.log('creditedAccountId ', get.creditedAccountId);
@@ -53,7 +57,9 @@ const createTransation = async (req: Request, res: Response) => {
 
     if (getDebitedId && getCreditedId) {
       if (getDebitedId.accountId !== getCreditedId.accountId) {
-        const { status, message } = await editBalance(getDebitedId.accountId, getCreditedId.accountId, value);
+        const { status, message } = await editBalance(
+          getDebitedId.accountId, getCreditedId.accountId, value);
+
         if (status === 404) {
           return res.status(status).json(message);
         }
